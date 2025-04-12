@@ -1,0 +1,22 @@
+@startuml
+actor User
+participant "GeometriApp" as UI
+participant "Validator" as Validator
+participant "BangunRuang" as BangunRuang
+
+User -> UI: input atribut
+UI -> Validator: validasiInput(atribut)
+alt input valid
+    UI -> BangunRuang: new BangunRuang(atribute)
+    UI -> BangunRuang: hitungVolume()
+    BangunRuang -> BangunRuang: Rumus
+    BangunRuang --> UI: hasilVolume
+    UI -> BangunRuang: hitungLuasPermukaan()
+    BangunRuang -> BangunRuang: Rumus
+    BangunRuang --> UI: hasilLuasPermukaan
+    UI -> User: tampilkan hasilVoolume dan hasilLuasPermukaan
+else input tidak valid
+    Validator --> UI: errorMessage
+    UI -> User: tampilkan errorMessage
+end
+@enduml

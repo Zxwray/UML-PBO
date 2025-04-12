@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Persegi
+
+User -> UI: Input sisi
+UI -> Persegi: new Persegi(s)
+UI -> Persegi: luas()
+Persegi -> Persegi: s * s
+Persegi --> UI: hasil luas
+UI -> Persegi: keliling()
+Persegi -> Persegi: 4 * s
+Persegi --> UI: hasil keliling
+UI --> User: Tampilkan hasil
+@enduml

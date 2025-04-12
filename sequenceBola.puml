@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Bola
+
+User -> UI: Input jari-jari
+UI -> Bola: new Bola(r)
+UI -> Bola: hitungVolume()
+Bola -> Bola: (4/3) * π * r³
+Bola --> UI: hasil volume
+UI -> Bola: hitungLuasPermukaan()
+Bola -> Bola: 4 * π * r²
+Bola --> UI: hasil luas permukaan
+UI --> User: Tampilkan hasil
+@enduml

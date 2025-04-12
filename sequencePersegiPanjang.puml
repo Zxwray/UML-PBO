@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant PersegiPanjang
+
+User -> UI: Input panjang, lebar
+UI -> PersegiPanjang: new PersegiPanjang(p, l)
+UI -> PersegiPanjang: luas()
+PersegiPanjang -> PersegiPanjang: p * l
+PersegiPanjang --> UI: hasil luas
+UI -> PersegiPanjang: keliling()
+PersegiPanjang -> PersegiPanjang: 2 * (p + l)
+PersegiPanjang --> UI: hasil keliling
+UI --> User: Tampilkan hasil
+@enduml

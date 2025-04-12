@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant BelahKetupat
+
+User -> UI: Input diagonal 1, 2 dan sisi
+UI -> BelahKetupat: new BelahKetupat(d1, d2, s)
+UI -> BelahKetupat: luas()
+BelahKetupat -> BelahKetupat: (d1 * d2) / 2
+BelahKetupat --> UI: hasil luas
+UI -> BelahKetupat: keliling()
+BelahKetupat -> BelahKetupat: 4 * s
+BelahKetupat --> UI: hasil keliling
+UI --> User: Tampilkan hasil
+@enduml

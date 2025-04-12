@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Segitiga
+
+User -> UI: Input alas, tinggi, sisi A, B, C
+UI -> Segitiga: new Segitiga(a, t, s1, s2, s3)
+UI -> Segitiga: luas()
+Segitiga -> Segitiga: (a * t) / 2
+Segitiga --> UI: hasil luas
+UI -> Segitiga: keliling()
+Segitiga -> Segitiga: s1 + s2 + s3
+Segitiga --> UI: hasil keliling
+UI --> User: Tampilkan hasil
+@enduml

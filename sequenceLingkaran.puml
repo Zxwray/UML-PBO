@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Lingkaran
+
+User -> UI: Input jari-jari
+UI -> Lingkaran: new Lingkaran(r)
+UI -> Lingkaran: luas()
+Lingkaran -> Lingkaran: π * r * r
+Lingkaran --> UI: hasil luas
+UI -> Lingkaran: keliling()
+Lingkaran -> Lingkaran: 2 * π * r
+Lingkaran --> UI: hasil keliling
+UI --> User: Tampilkan hasil
+@enduml

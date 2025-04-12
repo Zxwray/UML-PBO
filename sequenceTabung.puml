@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Tabung
+
+User -> UI: Input jari-jari, tinggi
+UI -> Tabung: new Tabung(r, t)
+UI -> Tabung: hitungVolume()
+Tabung -> Tabung: π * r² * t
+Tabung --> UI: hasil volume
+UI -> Tabung: hitungLuasPermukaan()
+Tabung -> Tabung: 2 * π * r * (r + t)
+Tabung --> UI: hasil luas permukaan
+UI --> User: Tampilkan hasil
+@enduml

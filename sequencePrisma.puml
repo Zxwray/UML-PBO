@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Prisma
+
+User -> UI: Input luas alas, keliling alas, tinggi
+UI -> Prisma: new Prisma(la, ka, t)
+UI -> Prisma: hitungVolume()
+Prisma -> Prisma: la * t
+Prisma --> UI: hasil volume
+UI -> Prisma: hitungLuasPermukaan()
+Prisma -> Prisma: (2 * la) + (ka * t)
+Prisma --> UI: hasil luas permukaan
+UI --> User: Tampilkan hasil
+@enduml
