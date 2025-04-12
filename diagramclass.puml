@@ -1,0 +1,184 @@
+@startuml
+' ======================= BANGUN DATAR ======================= '
+package "Bangun Datar" {
+  abstract class BangunDatar {
+    -nama: String
+    +getNama(): String
+    +luas(): float
+    +keliling(): float
+  }
+
+  class Segitiga {
+    -alas: float
+    -tinggi: float
+    -sisiA: float
+    -sisiB: float
+    -sisiC: float
+    +Segitiga(a: float, t: float, s1: float, s2: float, s3: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  class JajaranGenjang {
+    -alas: float
+    -tinggi: float
+    -sisiMiring: float
+    +JajaranGenjang(a: float, t: float, s: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  class BelahKetupat {
+    -diagonal1: float
+    -diagonal2: float
+    -sisi: float
+    +BelahKetupat(d1: float, d2: float, s: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  class Trapesium {
+    -alasBesar: float
+    -alasKecil: float
+    -tinggi: float
+    -sisiMiringA: float
+    -sisiMiringB: float
+    +Trapesium(AB: float, AK: float, t: float, a: float, b: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  class Lingkaran {
+    -jariJari: float
+    +Lingkaran(r: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  class Persegi {
+    -sisi: float
+    +Persegi(s: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  class PersegiPanjang {
+    -panjang: float
+    -lebar: float
+    +PersegiPanjang(p: float, l: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+    class Juring {
+    -jariJari: float
+    -sudut: float
+    +Juring(r: float, sudut: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  class Tembereng {
+    -jariJari: float
+    -sudut: float
+    +Tembereng(r: float, sudut: float)
+    +luas(): float
+    +keliling(): float
+  }
+
+  BangunDatar <|-- Juring
+  BangunDatar <|-- Tembereng
+  BangunDatar <|-- Segitiga
+  BangunDatar <|-- JajaranGenjang
+  BangunDatar <|-- BelahKetupat
+  BangunDatar <|-- Trapesium
+  BangunDatar <|-- Lingkaran
+  BangunDatar <|-- Persegi
+  BangunDatar <|-- PersegiPanjang
+}
+
+' ======================= BANGUN RUANG ======================= '
+package "Bangun Ruang" {
+  abstract class BangunRuang {
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  class Kubus {
+    -sisi: float
+    +Kubus(s: float)
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  class Balok {
+    -panjang: float
+    -lebar: float
+    -tinggi: float
+    +Balok(p: float, l: float, t: float)
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  class Bola {
+    -jariJari: float
+    +Bola(r: float)
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  class Tabung {
+    -jariJari: float
+    -tinggi: float
+    +Tabung(r: float, t: float)
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  class Kerucut {
+    -jariJari: float
+    -tinggi: float
+    -garisPelukis: float
+    +Kerucut(r: float, t: float, s: float)
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  class Prisma {
+    -luasAlas: float
+    -kelilingAlas: float
+    -tinggi: float
+    +Prisma(la: float, ka: float, t: float)
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  class Limas {
+    -luasAlas: float
+    -luasSisiTegak: float
+    -tinggi: float
+    +Limas(la: float, lst: float, t: float)
+    +hitungVolume(): double
+    +hitungLuasPermukaan(): double
+  }
+
+  BangunRuang <|-- Kubus
+  BangunRuang <|-- Balok
+  BangunRuang <|-- Tabung
+  BangunRuang <|-- Kerucut
+  BangunRuang <|-- Bola
+  BangunRuang <|-- Prisma
+  BangunRuang <|-- Limas
+}
+
+' ======================= APLIKASI ======================= '
+package "Aplikasi Geometri" {
+  class GeometriApp {
+    +hitungBangunDatar(bangun: BangunDatar): void
+    +hitungBangunRuang(bangun: BangunRuang): void
+  }
+
+  GeometriApp --> BangunDatar : menggunakan
+  GeometriApp --> BangunRuang : menggunakan
+}
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+actor User
+
+package "Aplikasi Geometri" {
+  usecase "Hitung Luas Bangun Datar" as UC1
+  usecase "Hitung Keliling Bangun Datar" as UC2
+  usecase "Hitung Volume Bangun Ruang" as UC3
+  usecase "Hitung Luas Permukaan Bangun Ruang" as UC4
+}
+
+User --> UC1
+User --> UC2
+User --> UC3
+User --> UC4
+@enduml
