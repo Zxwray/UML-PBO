@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Balok
+
+User -> UI: Input panjang, lebar, tinggi
+UI -> Balok: new Balok(p, l, t)
+UI -> Balok: hitungVolume()
+Balok -> Balok: p * l * t
+Balok --> UI: hasil volume
+UI -> Balok: hitungLuasPermukaan()
+Balok -> Balok: 2 * (pl + pt + lt)
+Balok --> UI: hasil luas permukaan
+UI --> User: Tampilkan hasil
+@enduml

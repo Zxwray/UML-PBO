@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Kubus
+
+User -> UI: Input sisi
+UI -> Kubus: new Kubus(s)
+UI -> Kubus: hitungVolume()
+Kubus -> Kubus: s³
+Kubus --> UI: hasil volume
+UI -> Kubus: hitungLuasPermukaan()
+Kubus -> Kubus: 6 * s²
+Kubus --> UI: hasil luas permukaan
+UI --> User: Tampilkan hasil
+@enduml

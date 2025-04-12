@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant JajaranGenjang
+
+User -> UI: Input alas, tinggi, sisi miring
+UI -> JajaranGenjang: new JajaranGenjang(a, t, s)
+UI -> JajaranGenjang: luas()
+JajaranGenjang -> JajaranGenjang: a * t
+JajaranGenjang --> UI: hasil luas
+UI -> JajaranGenjang: keliling()
+JajaranGenjang -> JajaranGenjang: 2 * (a + s)
+JajaranGenjang --> UI: hasil keliling
+UI --> User: Tampilkan hasil
+@enduml

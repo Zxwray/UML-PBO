@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Trapesium
+
+User -> UI: Input alas besar, kecil, tinggi, sisi miring A & B
+UI -> Trapesium: new Trapesium(AB, AK, t, a, b)
+UI -> Trapesium: luas()
+Trapesium -> Trapesium: ((AB + AK) * t) / 2
+Trapesium --> UI: hasil luas
+UI -> Trapesium: keliling()
+Trapesium -> Trapesium: AB + AK + a + b
+Trapesium --> UI: hasil keliling
+UI --> User: Tampilkan hasil
+@enduml

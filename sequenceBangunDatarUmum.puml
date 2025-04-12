@@ -1,0 +1,22 @@
+@startuml
+actor User
+participant "GeometriApp" as UI
+participant "Validator" as Validator
+participant "BangunDatar" as BangunDatar
+
+User -> UI: input atribut
+UI -> Validator: validasiInput(atribut)
+alt input valid
+    UI -> BangunDatar: new BangunDatar(atribute)
+    UI -> BangunDatar: hitungluas()
+    BangunDatar -> BangunDatar: Rumus
+    BangunDatar --> UI: hasilLuas
+    UI -> BangunDatar: hitungkeliling()
+    BangunDatar -> BangunDatar: Rumus
+    BangunDatar --> UI: hasilKeliling
+    UI -> User: tampilkan hasilLuas dan hasilKeliling
+else input tidak valid
+    Validator --> UI: errorMessage
+    UI -> User: tampilkan errorMessage
+end
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Limas
+
+User -> UI: Input luas alas, luas sisi tegak, tinggi
+UI -> Limas: new Limas(la, lst, t)
+UI -> Limas: hitungVolume()
+Limas -> Limas: (1/3) * la * t
+Limas --> UI: hasil volume
+UI -> Limas: hitungLuasPermukaan()
+Limas -> Limas: la + lst
+Limas --> UI: hasil luas permukaan
+UI --> User: Tampilkan hasil
+@enduml

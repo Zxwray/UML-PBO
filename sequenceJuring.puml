@@ -1,0 +1,28 @@
+@startuml
+actor User
+participant "GeometriApp" as UI
+participant "Validator" as Validator
+participant "Juring" as Juring
+
+User -> UI: input jariJari (r), sudut (θ)
+UI -> Validator: validasiInput(r, θ)
+alt input valid
+    UI -> Juring: buat objek Juring(r, θ)
+    UI -> Juring: luas()
+    note right of Juring
+      rumus:
+      L = (θ / 360) × π × r²
+    end note
+    Juring --> UI: hasilLuas
+    UI -> Juring: keliling()
+    note right of Juring
+      rumus:
+      K = (2 × π × r × θ / 360) + 2r
+    end note
+    Juring --> UI: hasilKeliling
+    UI -> User: tampilkan hasilLuas dan hasilKeliling
+else input tidak valid
+    Validator --> UI: errorMessage
+    UI -> User: tampilkan errorMessage
+end
+@enduml

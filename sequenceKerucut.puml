@@ -1,0 +1,15 @@
+@startuml
+actor User
+participant UI
+participant Kerucut
+
+User -> UI: Input jari-jari, tinggi, garis pelukis
+UI -> Kerucut: new Kerucut(r, t, s)
+UI -> Kerucut: hitungVolume()
+Kerucut -> Kerucut: (1/3) * π * r² * t
+Kerucut --> UI: hasil volume
+UI -> Kerucut: hitungLuasPermukaan()
+Kerucut -> Kerucut: π * r * (r + s)
+Kerucut --> UI: hasil luas permukaan
+UI --> User: Tampilkan hasil
+@enduml

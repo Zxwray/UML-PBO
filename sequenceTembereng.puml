@@ -1,0 +1,31 @@
+@startuml
+actor User
+participant "GeometriApp" as UI
+participant "Validator" as Validator
+participant "Tembereng" as Tembereng
+
+User -> UI: input jariJari (r), sudut (θ)
+UI -> Validator: validasiInput(r, θ)
+alt input valid
+    UI -> Tembereng: buat objek Tembereng(r, θ)
+    UI -> Tembereng: luas()
+    note right of Tembereng
+      rumus:
+      L_juring = (θ / 360) × π × r²
+      L_segitiga = ½ × r² × sin(θ)
+      L_tembereng = L_juring - L_segitiga
+    end note
+    Tembereng --> UI: hasilLuas
+    UI -> Tembereng: keliling()
+    note right of Tembereng
+      rumus:
+      busur = (θ / 360) × 2πr
+      keliling = busur + 2r
+    end note
+    Tembereng --> UI: hasilKeliling
+    UI -> User: tampilkan hasilLuas dan hasilKeliling
+else input tidak valid
+    Validator --> UI: errorMessage
+    UI -> User: tampilkan errorMessage
+end
+@enduml
