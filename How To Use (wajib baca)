@@ -1,0 +1,13 @@
+1. Gunakan Plant UML di vscode
+   a. install PlantUml di extension vscode by jebbs
+   b. install Graphviz dari chrome (pastikan sudah ada di path setelah di install)
+   c. buat file blablabla.puml
+   d. copas kode yang tersedia
+   e. tekan alt+d untuk menajalankan
+
+2. Gunakan mermaid.live
+   a. buka webnya
+   b. copas kodenya
+   c. ganti bagian @startuml menjadi sequenceDiagram (jika ingin menjalankan class diagram gunakan classDiagram)
+   d. Hapus bagian @enduml
+   e. selesai
